@@ -1,0 +1,48 @@
+
+class Article:
+    def __init__(self, reference, designation, prix):
+        self.reference = reference
+        self.designation = designation
+        self.prix = prix
+
+    def __str__(self):
+        return f"Article: {self.designation} (Ref: {self.reference}, Prix: {self.prix} EUR)"
+
+class Personne:
+    def __init__(self, nom, prenom, date_naissance):
+        self.nom = nom
+        self.prenom = prenom
+        self.date_naissance = date_naissance
+
+    def __str__(self):
+        return f"{self.prenom} {self.nom} (Né le: {self.date_naissance})"
+
+class Livre(Article):
+    def __init__(self, reference, designation, prix, isbn, nb_pages, auteur):
+        super().__init__(reference, designation, prix)
+        self.isbn = isbn
+        self.nb_pages = nb_pages
+        self.auteur = auteur
+
+    def __str__(self):
+        return f"Livre: {self.designation} (Ref: {self.reference}, Prix: {self.prix} EUR, ISBN: {self.isbn}, Pages: {self.nb_pages}, Auteur: {self.auteur})"
+
+class Dvd(Article):
+    def __init__(self, reference, designation, prix, duree, realisateur):
+        super().__init__(reference, designation, prix)
+        self.duree = duree
+        self.realisateur = realisateur
+
+    def __str__(self):
+        return f"DVD: {self.designation} (Ref: {self.reference}, Prix: {self.prix} EUR, Durée: {self.duree} minutes, Réalisateur: {self.realisateur})"
+
+
+auteur = Personne("Hugo", "Victor", "1802-02-26")
+realisateur = Personne("Spielberg", "Steven", "1946-12-18")
+
+livre = Livre("L001", "Les Misérables", 25, "123-456-789", 1463, auteur)
+
+dvd = Dvd("D001", "Jurassic Park", 15, 127, realisateur)
+
+print(livre)
+print(dvd)
